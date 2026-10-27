@@ -1,0 +1,7 @@
+$ node --check static/app.js
+exit code: 0
+PRAGMA integrity_check: [('ok',)]
+PRAGMA foreign_key_check: []
+Orders: [(1, '2026-09-10'), (2, '2026-10-27')]
+OrderItems count: 3
+All local Markdown links exist.

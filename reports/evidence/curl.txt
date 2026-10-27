@@ -1,0 +1,41 @@
+$ curl http://localhost:8001/
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Продажа обуви</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<header><h1>Продажа обуви</h1><div id="account"></div></header>
+<main>
+<p class="note">Учебный проект · демонстрационные товары и пользователи</p>
+<nav><button id="catalog-button">Товары</button><button id="orders-button" hidden>Заказы</button></nav>
+<p id="message" role="status"></p>
+<section id="content" aria-live="polite"></section>
+</main>
+<dialog id="login-dialog"><form id="login-form"><h2>Вход по логину</h2><label>Логин <input name="login" required maxlength="80" autocomplete="username"></label><p>Демо: admin, manager, client1, client2, client3</p><p id="login-error" role="alert"></p><button>Войти</button><button type="button" id="login-close">Отмена</button></form></dialog>
+<dialog id="order-dialog"><h2 id="order-title"></h2><form id="order-form"><label>Дата <input type="date" id="order-date" required></label><div class="table-wrap"><table><thead><tr><th>Товар</th><th>Размер</th><th>Кол-во</th><th>Цена</th><th>Сумма</th><th></th></tr></thead><tbody id="order-items"></tbody></table></div><p id="order-total"></p><p id="order-error" role="alert"></p><button id="save-order">Сохранить изменения</button><button type="button" id="order-close">Закрыть</button></form></dialog>
+</body></html>
+
+HTTP 200
+
+$ curl http://localhost:8001/api/login?login=admin
+{"id": 1, "full_name": "Иванова Анна Сергеевна", "role": "Администратор"}
+HTTP 200
+
+$ curl http://localhost:8001/api/login?login=manager
+{"id": 2, "full_name": "Петров Илья Андреевич", "role": "Менеджер"}
+HTTP 200
+
+$ curl http://localhost:8001/api/login?login=client1
+{"id": 3, "full_name": "Смирнова Ольга Ивановна", "role": "Клиент"}
+HTTP 200
+
+$ curl http://localhost:8001/api/login?login=client2
+{"id": 4, "full_name": "Соколов Артём Павлович", "role": "Клиент"}
+HTTP 200
+
+$ curl http://localhost:8001/api/login?login=client3
+{"id": 5, "full_name": "Морозова Ирина Олеговна", "role": "Клиент"}
+HTTP 200
+
+$ curl http://localhost:8001/api/login?login=unknown
+{"error": "Логин не найден."}
+HTTP 404

@@ -1,0 +1,68 @@
+test_database_constraints (test_app.AppTests.test_database_constraints) ... ok
+test_failed_update_rolls_back_every_change (test_app.AppTests.test_failed_update_rolls_back_every_change) ... 127.0.0.1 - - [27/Oct/2026 21:27:13] "GET /api/login?login=admin HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:13] "POST /api/order/update HTTP/1.1" 409 -
+ok
+test_five_logins_and_unknown (test_app.AppTests.test_five_logins_and_unknown) ... 127.0.0.1 - - [27/Oct/2026 21:27:13] "GET /api/login?login=admin HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:13] "GET /api/login?login=manager HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:13] "GET /api/login?login=client1 HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:13] "GET /api/login?login=client2 HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:13] "GET /api/login?login=client3 HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:13] "GET /api/login?login=missing HTTP/1.1" 404 -
+127.0.0.1 - - [27/Oct/2026 21:27:13] "GET /api/login?login=%27%20OR%201=1-- HTTP/1.1" 404 -
+127.0.0.1 - - [27/Oct/2026 21:27:13] "GET /api/login HTTP/1.1" 400 -
+ok
+test_invalid_requests (test_app.AppTests.test_invalid_requests) ... 127.0.0.1 - - [27/Oct/2026 21:27:14] "GET /api/login?login=admin HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "POST /api/order/update HTTP/1.1" 400 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "POST /api/order/update HTTP/1.1" 400 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "POST /api/order/update HTTP/1.1" 400 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "POST /api/order/update HTTP/1.1" 400 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "POST /api/order/update HTTP/1.1" 400 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "POST /api/order/update HTTP/1.1" 400 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "POST /api/order/update HTTP/1.1" 400 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "GET /api/order?id=999 HTTP/1.1" 404 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "GET /api/order?id=word HTTP/1.1" 400 -
+ok
+test_roles_and_logout (test_app.AppTests.test_roles_and_logout) ... 127.0.0.1 - - [27/Oct/2026 21:27:14] "GET /api/orders HTTP/1.1" 401 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "GET /api/login?login=client1 HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "GET /api/orders HTTP/1.1" 403 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "GET /api/login?login=manager HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "GET /api/orders HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "GET /api/order?id=1 HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "POST /api/order/update HTTP/1.1" 403 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "POST /api/logout HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:14] "GET /api/orders HTTP/1.1" 401 -
+ok
+test_static_and_catalog (test_app.AppTests.test_static_and_catalog) ... 127.0.0.1 - - [27/Oct/2026 21:27:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:15] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:15] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:15] "GET /favicon.ico HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:15] "GET /api/products HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:15] "GET /schema.sql HTTP/1.1" 404 -
+127.0.0.1 - - [27/Oct/2026 21:27:15] "GET /shop.db HTTP/1.1" 404 -
+127.0.0.1 - - [27/Oct/2026 21:27:15] "GET /../server.py HTTP/1.1" 404 -
+127.0.0.1 - - [27/Oct/2026 21:27:15] "GET /missing HTTP/1.1" 404 -
+ok
+test_update_returns_stock_once (test_app.AppTests.test_update_returns_stock_once) ... 127.0.0.1 - - [27/Oct/2026 21:27:15] "GET /api/login?login=admin HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:15] "POST /api/order/update HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:15] "GET /api/order?id=1 HTTP/1.1" 200 -
+127.0.0.1 - - [27/Oct/2026 21:27:15] "POST /api/order/update HTTP/1.1" 409 -
+ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 3.659s
+
+OK
+Демонстрационные данные: 5 пользователей, 4 товара, 2 заказа.
+Остатки в Stock указаны уже после этих заказов.
+Демонстрационные данные: 5 пользователей, 4 товара, 2 заказа.
+Остатки в Stock указаны уже после этих заказов.
+Демонстрационные данные: 5 пользователей, 4 товара, 2 заказа.
+Остатки в Stock указаны уже после этих заказов.
+Демонстрационные данные: 5 пользователей, 4 товара, 2 заказа.
+Остатки в Stock указаны уже после этих заказов.
+Демонстрационные данные: 5 пользователей, 4 товара, 2 заказа.
+Остатки в Stock указаны уже после этих заказов.
+Демонстрационные данные: 5 пользователей, 4 товара, 2 заказа.
+Остатки в Stock указаны уже после этих заказов.
+Демонстрационные данные: 5 пользователей, 4 товара, 2 заказа.
+Остатки в Stock указаны уже после этих заказов.

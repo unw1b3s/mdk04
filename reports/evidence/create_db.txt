@@ -1,0 +1,1 @@
+INFO: Созданы/проверены таблицы: Categories, Manufacturers, OrderItems, Orders, Products, Sizes, Stock, Users

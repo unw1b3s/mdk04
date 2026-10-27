@@ -1,0 +1,10 @@
+Дата проверки: 27.10.2026
+macOS-27.0-arm64-arm-64bit-Mach-O
+Python 3.14.7
+SQLite (Python) 3.50.4
+Python 3.8 syntax OK: create_db.py
+Python 3.8 syntax OK: demo_data.py
+Python 3.8 syntax OK: server.py
+Python 3.8 syntax OK: tests/test_app.py
+Python 3.8 syntax OK: tools/read_material.py
+ROSA Linux и Python 3.8: фактического запуска не было.

@@ -1,0 +1,4 @@
+$ sqlite3 reports/evidence/schema_check.db < schema.sql
+exit code: 0
+$ sqlite3 reports/evidence/schema_check.db .tables
+Categories  Manufacturers  OrderItems  Orders  Products  Sizes  Stock  Users
